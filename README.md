@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="BenchRig.App/wwwroot/favicon.svg" alt="BenchRig logo" width="120" />
-
 # ⚙️ BenchRig
 
 ### Hardware &amp; Network Diagnostic Platform — entirely in your browser
