@@ -37,9 +37,7 @@
 - [Tech Stack](#-tech-stack)
 - [Application Routes](#-application-routes)
 - [Project Structure](#-project-structure)
-- [Quick Start](#-quick-start)
 - [Configuration](#-configuration)
-- [Build &amp; Deploy](#-build--deploy)
 - [Progressive Web App](#-progressive-web-app)
 - [Security Model](#-security-model)
 - [Roadmap](#-roadmap)
@@ -262,36 +260,6 @@ BenchRig/
 ├── firestore.rules              # Hardened, role-based Firestore security rules
 └── firebase.json                # Hosting config (SPA rewrites + cache headers)
 ```
-
----
-
-## 🚦 Quick Start
-
-### Prerequisites
-
-- [.NET 10 SDK](https://dotnet.microsoft.com/download)
-- A modern browser (Chrome, Edge, Firefox)
-- *(Optional)* A [Firebase](https://firebase.google.com/) project — auth, forum, reports, tickets
-- *(Optional)* A [Cloudflare](https://workers.cloudflare.com/) account — your own speed-test server
-
-### Run locally
-
-```bash
-# 1. Clone
-git clone https://github.com/codeHannan/diagnostic-platform-blazor.git
-cd diagnostic-platform-blazor
-
-# 2. Restore & run the Blazor app
-cd BenchRig.App
-dotnet restore
-dotnet run
-```
-
-Open the printed `https://localhost:<port>` URL and start benching. 🎉
-
-> 💡 The diagnostics work standalone. Firebase and the Cloudflare Worker are only needed for accounts,
-> cloud reports, forum/helpdesk, and self-hosted speed tests.
-
 ---
 
 ## ⚙️ Configuration
@@ -332,40 +300,6 @@ Add the printed URL to `BenchRig.App/wwwroot/network-servers.json` (or via **Net
 Full guide: [`cloudflare-worker/README.md`](cloudflare-worker/README.md).
 
 </details>
-
----
-
-## 📦 Build & Deploy
-
-Produce an optimized static build:
-
-```bash
-cd BenchRig.App
-dotnet publish -c Release -o release
-```
-
-The output in `release/wwwroot` is a plain static site — deployable to **Firebase Hosting**,
-**Cloudflare Pages**, **GitHub Pages**, **Netlify**, or any static host:
-
-```bash
-# Firebase Hosting (config already points to release/wwwroot)
-firebase deploy --only hosting
-```
-
-[`firebase.json`](firebase.json) is preconfigured with SPA rewrites and cache headers tuned for the
-Blazor `_framework` and service worker.
-
----
-
-## 📱 Progressive Web App
-
-BenchRig is a fully installable **PWA**:
-
-- 🛜 An offline-first **service worker** caches the .NET runtime and all assets.
-- 📲 A **web manifest** lets users add it to their home screen or desktop.
-- ⚡ After first load, it launches instantly and works without a connection.
-
-Look for the **install** icon in your browser's address bar.
 
 ---
 
